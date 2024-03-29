@@ -15,10 +15,6 @@ def encode_atbash_encryption(string: str, save_register: bool = False) -> str:
     of the letter in the output string will correspond to the case of the letter in the transmitted string;
     important: the number of characters in the transmitted and output strings is always equal! """
 
-    if not isinstance(string, str):
-
-        raise TypeError('The data type of the argument can only be a string')
-
     try:
 
         first_list_of_ords = [(ord(x) - 96) if 96 < ord(x) < 123 else x for x in string.lower()]
