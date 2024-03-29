@@ -1,5 +1,9 @@
 from atbash_encryption.helper_atbash import help_encode_atbash, help_decode_atbash
 from user_encryption.helper_user import help_encode_user, help_decode_user
+from full_shift_encryption.helper_full_shift import help_encode_full_shift, help_decode_full_shift
+from shift_encryption.helper_shift import help_encode_shift, help_decode_shift
+from full_viginer_encryption.helper_full_viginer import help_encode_full_viginer, help_decode_full_viginer
+from viginer_encryption.helper_viginer import help_encode_viginer, help_decode_viginer
 
 
 def helper() -> None:
@@ -17,8 +21,12 @@ def helper() -> None:
 
     second_dict_with_name_func = {
 
+        1: [help_encode_shift, help_decode_shift],
+        2: [help_encode_full_shift, help_decode_full_shift],
         3: [help_encode_user, help_decode_user],
-        4: [help_encode_atbash, help_decode_atbash]
+        4: [help_encode_atbash, help_decode_atbash],
+        5: [help_encode_viginer, help_decode_viginer],
+        6: [help_encode_full_viginer, help_decode_full_viginer]
 
     }
 

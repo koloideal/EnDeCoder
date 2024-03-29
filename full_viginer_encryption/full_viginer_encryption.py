@@ -11,10 +11,6 @@ def encode_full_viginer_encryption(string: str, key_word: str) -> str:
     arguments must not exceed the interval [32; 126]; important: the number of characters in the transmitted and
     output strings is always the same! """
 
-    if not all([isinstance(key_word, str), isinstance(string, str)]):
-
-        raise TypeError('The data type of the arguments can only be a string')
-
     try:
 
         first_step_list: list = [ord(x) - 31 for x in string]
@@ -39,10 +35,6 @@ def decode_full_viginer_encryption(string: str, key_word: str) -> str:
     value of the arguments "string" and "passphrase" can only be a string, while each ordinal number of the character
     in the arguments must not exceed the interval [32; 126]; important: the number of characters in the transmitted
     and output strings is always the same! """
-
-    if not all([isinstance(key_word, str), isinstance(string, str)]):
-
-        raise TypeError('The data type of the arguments can only be a string')
 
     try:
 

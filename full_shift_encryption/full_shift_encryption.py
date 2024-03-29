@@ -9,11 +9,6 @@ def encode_full_shift_encryption(shift: int, string: str) -> str:
         number of the character in the argument should not go beyond the interval [32; 126]; important: the number of
         characters in the transmitted and output strings It's always the same! """
 
-    if not isinstance(shift, int) or not isinstance(string, str) or not 0 < shift < 27:
-
-        raise TypeError('The data type of the "shift" argument can only be an integer'
-                        ', and the data type of the argument "string" can only be a string')
-
     try:
 
         return ''.join([chr(x) for x in [(ord(j) + shift) if 31 < (ord(j) + shift) < 127 else (ord(j) + shift + 94) if (ord(j) < 31) else (ord(j) + shift - 94) for j in string]])
@@ -33,11 +28,6 @@ def decode_full_shift_encryption(shift: int, string: str) -> str:
     likely will not be able to be decrypted, the value of the "string" argument can only be a string, while each
     ordinal number of the character in the argument should not go beyond the interval [32; 126]; important: the
     number of characters in the transmitted and output lines are always equal! """
-
-    if not isinstance(shift, int) or not isinstance(string, str) or not 0 < shift < 27:
-
-        raise TypeError('The data type of the "shift" argument can only be an integer'
-                        ', and the data type of the argument "string" can only be a string')
 
     try:
 

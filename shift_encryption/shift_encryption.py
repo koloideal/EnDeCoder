@@ -3,10 +3,18 @@ from shift_encryption.get_chr_for_shift import get_chr_encode, get_chr_decode
 
 def encode_shift_encryption(shift: int, string: str, save_register: bool = False) -> str:
 
-    if not isinstance(shift, int) or not isinstance(string, str) or not 0 < shift < 27:
-
-        raise TypeError('The data type of the "shift" argument can only be an integer'
-                        ', and the data type of the argument "string" can only be a string')
+    """ This encryption function takes shift, string and save_register as arguments and returns an encrypted string;
+    the essence of encryption is that each character of the transmitted string is replaced by a character whose
+    ordinal number is equal to the ordinal number of the original character plus the value of the "shift" argument,
+    that is, the so-called "shift" occurs in accordance with the ASCII table; the value of the "shift" argument can
+    only be an integer in the range (0; 27), if the value goes beyond this encryption interval, this is abnormal and,
+    most likely, the text will not be able to be decrypted, the value of the "string" argument can only be a string,
+    while each ordinal number of the character in the argument should not go beyond the interval [65; 90] && [97;
+    122], all characters coming out of this interval will be ignored during encryption, but in the output line they
+    will remain in the same places where they were in the original line; if the value of the save_register argument
+    is True, the case of all characters in the output string will be the same as the corresponding characters in the
+    source string, it is important: the number of characters in the transmitted and output strings is always the
+    same! """
 
     try:
 
@@ -51,10 +59,17 @@ def encode_shift_encryption(shift: int, string: str, save_register: bool = False
 
 def decode_shift_encryption(shift: int, string: str, save_register: bool = False) -> str:
 
-    if not isinstance(shift, int) or not isinstance(string, str) or not 0 < shift < 27:
-
-        raise TypeError('The data type of the "shift" argument can only be an integer'
-                        ', and the data type of the argument "string" can only be a string')
+    """ This decryption function takes shift, string and save_register as arguments and returns the decrypted string;
+    the essence of decryption is that each character of the transmitted string is replaced by a character whose
+    ordinal number is equal to the ordinal number of the original character minus the value of the "shift" argument,
+    that is, the so-called "shift" occurs in accordance with the ASCII table; the value of the "shift" argument can
+    only be an integer in the range (0; 27), the value of the "string" argument can only be a string,
+    and each ordinal number of the character in the argument must not exceed the interval [65; 90] && [97; 122],
+    all characters coming out of this interval will be ignored during encryption, but they will remain the same in
+    the output string the places where they were in the source string; if the value of the save_register argument is
+    True, the case of all characters in the output string will be the same as the corresponding characters in the
+    source string, it is important: the number of characters in the transmitted and output strings is always the
+    same! """
 
     try:
 

@@ -13,12 +13,6 @@ def encode_viginer_encryption(string: str, key_word: str, save_register: bool = 
     were in the original string; important: the number of characters in the transmitted and output strings is always
     the same! """
 
-    if not all([isinstance(key_word, str), isinstance(string, str), not (min([ord(x) for x in key_word]) < 97),
-                key_word.islower(), not (max([ord(x) for x in key_word]) > 122), isinstance(save_register, bool)]):
-
-        raise TypeError('The data type of the arguments "string" and "key_word" can only be a string;'
-                        ' argument key_word must be in lowercase and contain only letters of the alphabet')
-
     try:
 
         first_step_list: list = []
@@ -49,12 +43,6 @@ def decode_viginer_encryption(string: str, key_word: str, save_register: bool = 
     characters will be ignored, but at the same time they will be in the same places in the output string where they
     were in the original string; important: the number of characters in the transmitted and output strings is always
     the same! """
-
-    if not all([isinstance(key_word, str), isinstance(string, str), not (min([ord(x) for x in key_word]) < 97),
-                key_word.islower(), not (max([ord(x) for x in key_word]) > 122), isinstance(save_register, bool)]):
-
-        raise TypeError('The data type of the arguments "string" and "key_word" can only be a string;'
-                        ' argument key_word must be in lowercase and contain only letters of the alphabet')
 
     try:
 
