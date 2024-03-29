@@ -1,4 +1,5 @@
 from atbash_encryption.get_chr_for_atbash import get_chr
+import datetime
 
 
 def encode_atbash_encryption(string: str, save_register: bool = False) -> str:
@@ -44,6 +45,10 @@ def encode_atbash_encryption(string: str, save_register: bool = False) -> str:
             return ''.join(third_list_of_ords)
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)
 

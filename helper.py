@@ -4,9 +4,14 @@ from full_shift_encryption.helper_full_shift import help_encode_full_shift, help
 from shift_encryption.helper_shift import help_encode_shift, help_decode_shift
 from full_viginer_encryption.helper_full_viginer import help_encode_full_viginer, help_decode_full_viginer
 from viginer_encryption.helper_viginer import help_encode_viginer, help_decode_viginer
+import datetime
 
 
 def helper() -> None:
+
+    with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+        traceback.write(f'Start logging, datetime: {datetime.datetime.now()}\n\n')
 
     dict_with_name_func = {
 
@@ -30,30 +35,41 @@ def helper() -> None:
 
     }
 
-    where_get_data = int(input('Здравствуй, выбери откуда кодировать/декодировать текст?(Введи цифру)\n'
-                               '1. Из файла\n'
-                               '2. Набрать вручную\n'))
+    where_get_data = input('Здравствуй, выбери откуда кодировать/декодировать текст?(Введи цифру)\n'
+                           '1. Из файла\n'
+                           '2. Набрать вручную\n')
 
-    if where_get_data == 2:
+    if where_get_data not in ['1', '2']:
+        print()
+        helper()
+
+    if where_get_data == '2':
 
         print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
 
         for k, i in dict_with_name_func.items():
-
             print(f'{k}. {i}')
 
-        encryption_method = int(input())
+        encryption_method = input()
 
-        encoding_or_decoding = int(input('\nНеобходимо шифровать или расшифровать текст?(Введи цифру)\n'
-                                         '1. Шифровать\n'
-                                         '2. Расшифровать\n'))
+        if encryption_method not in ['1', '2', '3', '4', '5', '6']:
+            print()
+            helper()
+
+        encoding_or_decoding = input('\nНеобходимо шифровать или расшифровать текст?(Введи цифру)\n'
+                                     '1. Шифровать\n'
+                                     '2. Расшифровать\n')
+
+        if encoding_or_decoding not in ['1', '2']:
+            print()
+            helper()
 
         match encoding_or_decoding:
 
-            case 1:
+            case '1':
 
-                print(second_dict_with_name_func[encryption_method][0]())
+                print(second_dict_with_name_func[int(encryption_method)][0]())
 
-            case 2:
+            case '2':
 
-                print(second_dict_with_name_func[encryption_method][1]())
+                print(second_dict_with_name_func[int(encryption_method)][1]())

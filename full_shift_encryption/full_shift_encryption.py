@@ -1,3 +1,6 @@
+import datetime
+
+
 def encode_full_shift_encryption(shift: int, string: str) -> str:
 
     """ This encryption function takes a shift and a string as arguments and returns an encrypted string; the essence
@@ -14,6 +17,10 @@ def encode_full_shift_encryption(shift: int, string: str) -> str:
         return ''.join([chr(x) for x in [(ord(j) + shift) if 31 < (ord(j) + shift) < 127 else (ord(j) + shift + 94) if (ord(j) < 31) else (ord(j) + shift - 94) for j in string]])
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)
 
@@ -34,5 +41,9 @@ def decode_full_shift_encryption(shift: int, string: str) -> str:
         return ''.join([chr(x) for x in [(ord(j) - shift) if 31 < (ord(j) - shift) < 127 else (ord(j) - shift - 94) if (ord(j) < 31) else (ord(j) - shift + 94) for j in string]])
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)

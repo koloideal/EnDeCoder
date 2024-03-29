@@ -1,4 +1,5 @@
 from shift_encryption.get_chr_for_shift import get_chr_encode, get_chr_decode
+import datetime
 
 
 def encode_shift_encryption(shift: int, string: str, save_register: bool = False) -> str:
@@ -54,6 +55,10 @@ def encode_shift_encryption(shift: int, string: str, save_register: bool = False
 
     except Exception as e:
 
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
+
         raise type(e)(e)
 
 
@@ -108,5 +113,9 @@ def decode_shift_encryption(shift: int, string: str, save_register: bool = False
             return result
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)

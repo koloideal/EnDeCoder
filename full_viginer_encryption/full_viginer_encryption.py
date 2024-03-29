@@ -1,4 +1,5 @@
 from full_viginer_encryption.get_chr_for_full_viginer import get_chr_encode, get_chr_decode
+import datetime
 
 
 def encode_full_viginer_encryption(string: str, key_word: str) -> str:
@@ -22,6 +23,10 @@ def encode_full_viginer_encryption(string: str, key_word: str) -> str:
         return result
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)
 
@@ -47,5 +52,9 @@ def decode_full_viginer_encryption(string: str, key_word: str) -> str:
         return result
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)

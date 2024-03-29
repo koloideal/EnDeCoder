@@ -1,3 +1,6 @@
+import datetime
+
+
 def encode_user_encryption(encryption_symbols: dict, string: str, escape_symbol: str = '0') -> str:
 
     """ This encryption function takes "string" and "dictionary" as arguments and returns an encrypted string; the
@@ -41,6 +44,10 @@ def encode_user_encryption(encryption_symbols: dict, string: str, escape_symbol:
         return result
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)
 
@@ -86,5 +93,9 @@ def decode_user_encryption(encryption_symbols: dict, string: str, escape_symbol:
         return result
 
     except Exception as e:
+
+        with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+            traceback.write(f'Error: {e}\nDatetime: {datetime.datetime.now()}\n\n')
 
         raise type(e)(e)
