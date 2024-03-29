@@ -17,8 +17,7 @@ def help_encode_user():
 
         escape_symbol = input('\nВведите символ для экранирования: ')
 
-        if not all([isinstance(encryption_symbols, dict), isinstance(escape_symbol, str),
-                    len(escape_symbol) == 1]):
+        if not len(escape_symbol) == 1:
 
             print('The data type of the "encryption_symbols" argument can only be an dictionary'
                   ', and the data type of the argument "string" can only be a string, the length of the '
@@ -47,8 +46,7 @@ def help_decode_user():
 
         escape_symbol = input('\nВведите символ для экранирования: ')
 
-        if not all([isinstance(encryption_symbols, dict), isinstance(escape_symbol, str),
-                    len(escape_symbol) == 1]):
+        if not len(escape_symbol) == 1:
 
             print('The data type of the "encryption_symbols" argument can only be an dictionary'
                   ', and the data type of the argument "string" can only be a string, the length of the '

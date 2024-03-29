@@ -66,12 +66,6 @@ def decode_user_encryption(encryption_symbols: dict, string: str, escape_symbol:
     important: the escape_symbol character MUST NOT BE CONTAINED in the input string, otherwise the behavior of the
     function cannot be predicted """
 
-    if not all([isinstance(encryption_symbols, dict), isinstance(string, str), isinstance(escape_symbol, str),
-                len(escape_symbol) == 1]):
-        raise ValueError('The data type of the "encryption_symbols" argument can only be an dictionary'
-                         ', and the data type of the argument "string" can only be a string, the length of the '
-                         'argument "escape_symbol" must be equal to one')
-
     try:
 
         result = ''
