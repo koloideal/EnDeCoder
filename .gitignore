@@ -1,0 +1,9 @@
+/.venv
+/.idea
+shift_encryption/__pycache__/
+full_shift_encryption/__pycache__/
+user_encryption/__pycache__/
+viginer_encryption/__pycache__/
+atbash_encryption/__pycache__/
+full_viginer_encryption/__pycache__/
+__pycache__/
