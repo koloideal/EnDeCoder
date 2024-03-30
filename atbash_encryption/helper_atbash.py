@@ -1,39 +1,91 @@
 from atbash_encryption.atbash_encryption import encode_atbash_encryption, decode_atbash_encryption
 
 
-def help_encode_atbash():
+def help_encode_atbash(file_content: list = None, file_locate: str = None) -> str or None:
 
-    while True:
+    if file_content:
 
-        string = input("\nВведите строку: ")
+        while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+            save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
 
-        if not isinstance(string, str) or save_register not in ['0', '1']:
+            if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+                print('Входные данные могут быть только 0 или 1')
 
-            continue
+                continue
 
-        else:
+            else:
 
-            return f'\nresult## {encode_atbash_encryption(string, bool(int(save_register)))}'
+                with open(f'content/{file_locate}(encoded).txt', 'w', encoding='utf8') as file:
+
+                    for line in file_content:
+
+                        file.write(encode_atbash_encryption(line, bool(int(save_register))) + '\n')
+
+                print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+
+                break
+
+    else:
+
+        while True:
+
+            string = input("\nВведите строку: ")
+
+            save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+
+            if not isinstance(string, str) or save_register not in ['0', '1']:
+
+                print('Входные данные могут быть только 0 или 1')
+
+                continue
+
+            else:
+
+                return f'\nresult## {encode_atbash_encryption(string, bool(int(save_register)))}'
 
 
-def help_decode_atbash():
+def help_decode_atbash(file_content: list = None, file_locate: str = None) -> str or None:
 
-    while True:
+    if file_content:
 
-        string = input("\nВведите строку: ")
+        while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+            save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
 
-        if not isinstance(string, str) or save_register not in ['0', '1']:
+            if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+                print('Входные данные могут быть только 0 или 1')
 
-            continue
+                continue
 
-        else:
+            else:
 
-            return f'\nresult## {decode_atbash_encryption(string, bool(int(save_register)))}'
+                with open(f'content/{file_locate}(decoded).txt', 'w', encoding='utf8') as file:
+
+                    for line in file_content:
+
+                        file.write(decode_atbash_encryption(line, bool(int(save_register))) + '\n')
+
+                print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+
+                break
+
+    else:
+
+        while True:
+
+            string = input("\nВведите строку: ")
+
+            save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+
+            if not isinstance(string, str) or save_register not in ['0', '1']:
+
+                print('Входные данные могут быть только 0 или 1')
+
+                continue
+
+            else:
+
+                return f'\nresult## {decode_atbash_encryption(string, bool(int(save_register)))}'
