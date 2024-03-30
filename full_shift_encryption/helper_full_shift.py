@@ -1,47 +1,111 @@
 from full_shift_encryption.full_shift_encryption import encode_full_shift_encryption, decode_full_shift_encryption
 
 
-def help_encode_full_shift():
+def help_encode_full_shift(file_content: list = None, file_locate: str = None) -> str or None:
 
-    while True:
+    if file_content:
 
-        string = input("\nВведите строку: ")
+        while True:
 
-        try:
+            try:
 
-            shift = int(input("\nВведите сдвиг: "))
+                shift = int(input("\nВведите сдвиг: "))
 
-            if not 0 < shift < 27:
+                if not 0 < shift < 27:
 
-                raise TypeError
+                    raise TypeError
 
-        except (TypeError, ValueError):
+            except (TypeError, ValueError):
 
-            print('The data type of the "shift" argument can only be an integer in interval [1; 26]')
+                print('The data type of the "shift" argument can only be an integer in interval [1; 26]')
 
-            continue
+                continue
 
-        return f'\nresult## {encode_full_shift_encryption(shift, string)}'
+            else:
+
+                with open(f'content/{file_locate}(encoded).txt', 'w', encoding='utf8') as file:
+
+                    for line in file_content:
+
+                        file.write((encode_full_shift_encryption(shift, line)) + '\n')
+
+                print(f'\nФайл {file_locate}(encoded).txt успешно создан')
+
+                break
+
+    else:
+
+        while True:
+
+            string = input("\nВведите строку: ")
+
+            try:
+
+                shift = int(input("\nВведите сдвиг: "))
+
+                if not 0 < shift < 27:
+
+                    raise TypeError
+
+            except (TypeError, ValueError):
+
+                print('The data type of the "shift" argument can only be an integer in interval [1; 26]')
+
+                continue
+
+            return f'\nresult## {encode_full_shift_encryption(shift, string)}'
 
 
-def help_decode_full_shift():
+def help_decode_full_shift(file_content: list = None, file_locate: str = None) -> str or None:
 
-    while True:
+    if file_content:
 
-        string = input("\nВведите строку: ")
+        while True:
 
-        try:
+            try:
 
-            shift = int(input("\nВведите сдвиг: "))
+                shift = int(input("\nВведите сдвиг: "))
 
-            if not 0 < shift < 27:
+                if not 0 < shift < 27:
 
-                raise TypeError
+                    raise TypeError
 
-        except (TypeError, ValueError):
+            except (TypeError, ValueError):
 
-            print('The data type of the "shift" argument can only be an integer in interval [1; 26]')
+                print('The data type of the "shift" argument can only be an integer in interval [1; 26]')
 
-            continue
+                continue
 
-        return f'\nresult## {decode_full_shift_encryption(shift, string)}'
+            else:
+
+                with open(f'content/{file_locate}(decoded).txt', 'w', encoding='utf8') as file:
+
+                    for line in file_content:
+
+                        file.write((decode_full_shift_encryption(shift, line)) + '\n')
+
+                print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+
+                break
+
+    else:
+
+        while True:
+
+            string = input("\nВведите строку: ")
+
+            try:
+
+                shift = int(input("\nВведите сдвиг: "))
+
+                if not 0 < shift < 27:
+
+                    raise TypeError
+
+            except (TypeError, ValueError):
+
+                print('The data type of the "shift" argument can only be an integer in interval [1; 26]')
+
+                continue
+
+            return f'\nresult## {decode_full_shift_encryption(shift, string)}'

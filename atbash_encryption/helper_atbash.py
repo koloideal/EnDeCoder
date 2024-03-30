@@ -23,7 +23,7 @@ def help_encode_atbash(file_content: list = None, file_locate: str = None) -> st
 
                         file.write(encode_atbash_encryption(line, bool(int(save_register))) + '\n')
 
-                print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+                print(f'\nФайл {file_locate}(encoded).txt успешно создан')
 
                 break
 
