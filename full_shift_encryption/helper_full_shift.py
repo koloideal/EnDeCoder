@@ -35,9 +35,9 @@ def help_encode_full_shift(file_content: list = None, file_locate: str = None) -
 
     else:
 
-        while True:
+        string = input("\nВведите строку: ")
 
-            string = input("\nВведите строку: ")
+        while True:
 
             try:
 
@@ -53,7 +53,9 @@ def help_encode_full_shift(file_content: list = None, file_locate: str = None) -
 
                 continue
 
-            return f'\nresult## {encode_full_shift_encryption(shift, string)}'
+            else:
+
+                return f'\nresult## {encode_full_shift_encryption(shift, string)}'
 
 
 def help_decode_full_shift(file_content: list = None, file_locate: str = None) -> str or None:
@@ -90,9 +92,9 @@ def help_decode_full_shift(file_content: list = None, file_locate: str = None) -
 
     else:
 
-        while True:
+        string = input("\nВведите строку: ")
 
-            string = input("\nВведите строку: ")
+        while True:
 
             try:
 
@@ -108,4 +110,6 @@ def help_decode_full_shift(file_content: list = None, file_locate: str = None) -
 
                 continue
 
-            return f'\nresult## {decode_full_shift_encryption(shift, string)}'
+            else:
+
+                return f'\nresult## {decode_full_shift_encryption(shift, string)}'

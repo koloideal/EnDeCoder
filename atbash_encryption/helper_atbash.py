@@ -29,13 +29,13 @@ def help_encode_atbash(file_content: list = None, file_locate: str = None) -> st
 
     else:
 
-        while True:
+        string = input("\nВведите строку: ")
 
-            string = input("\nВведите строку: ")
+        while True:
 
             save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
 
-            if not isinstance(string, str) or save_register not in ['0', '1']:
+            if save_register not in ['0', '1']:
 
                 print('Входные данные могут быть только 0 или 1')
 
@@ -74,13 +74,13 @@ def help_decode_atbash(file_content: list = None, file_locate: str = None) -> st
 
     else:
 
-        while True:
+        string = input("\nВведите строку: ")
 
-            string = input("\nВведите строку: ")
+        while True:
 
             save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
 
-            if not isinstance(string, str) or save_register not in ['0', '1']:
+            if save_register not in ['0', '1']:
 
                 print('Входные данные могут быть только 0 или 1')
 

@@ -15,6 +15,12 @@ def help_encode_shift(file_content: list = None, file_locate: str = None) -> str
 
                 continue
 
+            else:
+
+                break
+
+        while True:
+
             try:
 
                 shift = int(input("\nВведите сдвиг: "))
@@ -53,7 +59,13 @@ def help_encode_shift(file_content: list = None, file_locate: str = None) -> str
 
                 continue
 
-            string = input("\nВведите строку: ")
+            else:
+
+                break
+
+        string = input("\nВведите строку: ")
+
+        while True:
 
             try:
 
@@ -87,6 +99,12 @@ def help_decode_shift(file_content: list = None, file_locate: str = None) -> str
                 print('Входные данные могут быть только 0 или 1')
 
                 continue
+
+            else:
+
+                break
+
+        while True:
 
             try:
 
@@ -126,7 +144,13 @@ def help_decode_shift(file_content: list = None, file_locate: str = None) -> str
 
                 continue
 
-            string = input("\nВведите строку: ")
+            else:
+
+                break
+
+        string = input("\nВведите строку: ")
+
+        while True:
 
             try:
 
