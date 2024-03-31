@@ -5,15 +5,15 @@ def help_encode_user(file_content: list = None, file_locate: str = None) -> str 
 
     if file_content:
 
+        encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+
+        encryption_symbols = {}
+
+        for i in encryption_symbols_str.split(','):
+
+            encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
+
         while True:
-
-            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
-
-            encryption_symbols = {}
-
-            for i in encryption_symbols_str.split(','):
-
-                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
 
             escape_symbol = input('\nВведите символ для экранирования: ')
 
@@ -39,17 +39,17 @@ def help_encode_user(file_content: list = None, file_locate: str = None) -> str 
 
     else:
 
+        encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+
+        encryption_symbols = {}
+
+        for i in encryption_symbols_str.split(','):
+
+            encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
+
+        string = input("\nВведите строку: ")
+
         while True:
-
-            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
-
-            encryption_symbols = {}
-
-            for i in encryption_symbols_str.split(','):
-
-                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
-
-            string = input("\nВведите строку: ")
 
             escape_symbol = input('\nВведите символ для экранирования: ')
 
@@ -70,15 +70,15 @@ def help_decode_user(file_content: list = None, file_locate: str = None) -> str 
 
     if file_content:
 
+        encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+
+        encryption_symbols = {}
+
+        for i in encryption_symbols_str.split(','):
+
+            encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
+
         while True:
-
-            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
-
-            encryption_symbols = {}
-
-            for i in encryption_symbols_str.split(','):
-
-                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
 
             escape_symbol = input('\nВведите символ для экранирования: ')
 
@@ -104,17 +104,17 @@ def help_decode_user(file_content: list = None, file_locate: str = None) -> str 
 
     else:
 
+        encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+
+        encryption_symbols = {}
+
+        for i in encryption_symbols_str.split(','):
+
+            encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
+
+        string = input("\nВведите строку: ")
+
         while True:
-
-            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
-
-            encryption_symbols = {}
-
-            for i in encryption_symbols_str.split(','):
-
-                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
-
-            string = input("\nВведите строку: ")
 
             escape_symbol = input('\nВведите символ для экранирования: ')
 

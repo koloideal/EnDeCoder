@@ -7,13 +7,25 @@ def help_encode_full_viginer(file_content: list = None, file_locate: str = None)
 
         key_word = input("\nВведите ключ-фразу: ")
 
-        new_file_content = chr(127).join(file_content)
+        list_with_len_lines = [len(line) for line in file_content]
+
+        encoded_string = encode_full_viginer_encryption(''.join(file_content), key_word)
+
+        result_list = []
+
+        long = 0
+
+        for line in list_with_len_lines:
+
+            result_list.append(encoded_string[long:line + long])
+
+            long += line
 
         with open(f'content/{file_locate}(encoded).txt', 'w', encoding='utf8') as file:
 
-            for line in file_content:
+            for line in result_list:
 
-                file.write(encode_full_viginer_encryption(line, key_word=key_word) + '\n')
+                file.write(line + '\n')
 
         print(f'\nФайл {file_locate}(encoded).txt успешно создан')
 
@@ -32,10 +44,25 @@ def help_decode_full_viginer(file_content: list = None, file_locate: str = None)
 
         key_word = input("\nВведите ключ-фразу: ")
 
+        list_with_len_lines = [len(line) for line in file_content]
+
+        decoded_string = decode_full_viginer_encryption(''.join(file_content), key_word)
+
+        result_list = []
+
+        long = 0
+
+        for line in list_with_len_lines:
+
+            result_list.append(decoded_string[long:line + long])
+
+            long += line
+
         with open(f'content/{file_locate}(decoded).txt', 'w', encoding='utf8') as file:
 
-            for line in file_content:
-                file.write(decode_full_viginer_encryption(line, key_word=key_word) + '\n')
+            for line in result_list:
+
+                file.write(line + '\n')
 
         print(f'\nФайл {file_locate}(decoded).txt успешно создан')
 
