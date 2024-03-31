@@ -7,6 +7,8 @@ def help_encode_full_viginer(file_content: list = None, file_locate: str = None)
 
         key_word = input("\nВведите ключ-фразу: ")
 
+        new_file_content = chr(127).join(file_content)
+
         with open(f'content/{file_locate}(encoded).txt', 'w', encoding='utf8') as file:
 
             for line in file_content:

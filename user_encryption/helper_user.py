@@ -1,59 +1,131 @@
 from user_encryption.user_encryption import encode_user_encryption, decode_user_encryption
 
 
-def help_encode_user():
+def help_encode_user(file_content: list = None, file_locate: str = None) -> str or None:
 
-    while True:
+    if file_content:
 
-        encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+        while True:
 
-        encryption_symbols = {}
+            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
 
-        for i in encryption_symbols_str.split(', '):
+            encryption_symbols = {}
 
-            encryption_symbols[i[0]] = i[2]
+            for i in encryption_symbols_str.split(','):
 
-        string = input("\nВведите строку: ")
+                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
 
-        escape_symbol = input('\nВведите символ для экранирования: ')
+            escape_symbol = input('\nВведите символ для экранирования: ')
 
-        if not len(escape_symbol) == 1:
+            if not len(escape_symbol) == 1:
 
-            print('The data type of the "encryption_symbols" argument can only be an dictionary'
-                  ', and the data type of the argument "string" can only be a string, the length of the '
-                  'argument "escape_symbol" must be equal to one')
+                print('The data type of the "encryption_symbols" argument can only be an dictionary'
+                      ', and the data type of the argument "string" can only be a string, the length of the '
+                      'argument "escape_symbol" must be equal to one')
 
-            continue
+                continue
 
-        else:
+            else:
 
-            return f'\nresult## {encode_user_encryption(encryption_symbols, string, escape_symbol)}'
+                with open(f'content/{file_locate}(encoded).txt', 'w', encoding='utf8') as file:
+
+                    for line in file_content:
+
+                        file.write(encode_user_encryption(encryption_symbols, line, escape_symbol) + '\n')
+
+                print(f'\nФайл {file_locate}(encoded).txt успешно создан')
+
+                break
+
+    else:
+
+        while True:
+
+            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+
+            encryption_symbols = {}
+
+            for i in encryption_symbols_str.split(','):
+
+                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
+
+            string = input("\nВведите строку: ")
+
+            escape_symbol = input('\nВведите символ для экранирования: ')
+
+            if not len(escape_symbol) == 1:
+
+                print('The data type of the "encryption_symbols" argument can only be an dictionary'
+                      ', and the data type of the argument "string" can only be a string, the length of the '
+                      'argument "escape_symbol" must be equal to one')
+
+                continue
+
+            else:
+
+                return f'\nresult## {encode_user_encryption(encryption_symbols, string, escape_symbol)}'
 
 
-def help_decode_user():
+def help_decode_user(file_content: list = None, file_locate: str = None) -> str or None:
 
-    while True:
+    if file_content:
 
-        encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+        while True:
 
-        encryption_symbols = {}
+            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
 
-        for i in encryption_symbols_str.split(', '):
+            encryption_symbols = {}
 
-            encryption_symbols[i[0]] = i[2]
+            for i in encryption_symbols_str.split(','):
 
-        string = input("\nВведите строку: ")
+                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
 
-        escape_symbol = input('\nВведите символ для экранирования: ')
+            escape_symbol = input('\nВведите символ для экранирования: ')
 
-        if not len(escape_symbol) == 1:
+            if not len(escape_symbol) == 1:
 
-            print('The data type of the "encryption_symbols" argument can only be an dictionary'
-                  ', and the data type of the argument "string" can only be a string, the length of the '
-                  'argument "escape_symbol" must be equal to one')
+                print('The data type of the "encryption_symbols" argument can only be an dictionary'
+                      ', and the data type of the argument "string" can only be a string, the length of the '
+                      'argument "escape_symbol" must be equal to one')
 
-            continue
+                continue
 
-        else:
+            else:
 
-            return f'\nresult## {decode_user_encryption(encryption_symbols, string, escape_symbol)}'
+                with open(f'content/{file_locate}(decoded).txt', 'w', encoding='utf8') as file:
+
+                    for line in file_content:
+
+                        file.write(decode_user_encryption(encryption_symbols, line, escape_symbol) + '\n')
+
+                print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+
+                break
+
+    else:
+
+        while True:
+
+            encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+
+            encryption_symbols = {}
+
+            for i in encryption_symbols_str.split(','):
+
+                encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
+
+            string = input("\nВведите строку: ")
+
+            escape_symbol = input('\nВведите символ для экранирования: ')
+
+            if not len(escape_symbol) == 1:
+
+                print('The data type of the "encryption_symbols" argument can only be an dictionary'
+                      ', and the data type of the argument "string" can only be a string, the length of the '
+                      'argument "escape_symbol" must be equal to one')
+
+                continue
+
+            else:
+
+                return f'\nresult## {decode_user_encryption(encryption_symbols, string, escape_symbol)}'
