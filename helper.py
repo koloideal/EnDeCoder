@@ -2,6 +2,7 @@ import datetime
 import os
 from utils_func.get_data_1 import get_data_1
 from utils_func.get_data_2 import get_data_2
+from utils_func.get_data_3 import get_data_3
 from atbash_encryption.helper_atbash import help_encode_atbash, help_decode_atbash
 from user_encryption.helper_user import help_encode_user, help_decode_user
 from full_shift_encryption.helper_full_shift import help_encode_full_shift, help_decode_full_shift
@@ -37,6 +38,10 @@ def helper() -> None:
 
     os.makedirs('content', exist_ok=True)
 
+    with open('configs.json', 'a', encoding='utf-8'):
+
+        pass
+
     with open('traceback.txt', 'a', encoding='utf8') as traceback:
 
         traceback.write(f'Start logging, datetime: {datetime.datetime.now()}\n\n')
@@ -63,3 +68,7 @@ def helper() -> None:
     elif where_get_data == '2':
 
         get_data_2()
+
+    else:
+
+        get_data_3()

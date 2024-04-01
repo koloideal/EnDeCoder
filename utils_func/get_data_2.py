@@ -8,6 +8,7 @@ def get_data_2():
         print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
 
         for k, i in helper.dict_with_name_func.items():
+
             print(f'{k}. {i}')
 
         encryption_method = input()
