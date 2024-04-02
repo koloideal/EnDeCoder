@@ -24,6 +24,7 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
             shift = int(input("\nВведите сдвиг: "))
 
             if not 0 < shift < 27:
+
                 raise TypeError
 
         except (TypeError, ValueError):

@@ -27,6 +27,8 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
     print(f'\nФайл {file_locate}(encoded).txt успешно создан')
 
+    return
+
 
 def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
@@ -53,3 +55,5 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
             file.write(line + '\n')
 
     print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+
+    return

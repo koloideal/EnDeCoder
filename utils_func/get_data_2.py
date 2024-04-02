@@ -7,7 +7,7 @@ def get_data_2():
 
         print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
 
-        for k, i in helper.dict_with_name_func.items():
+        for k, i in helper.name_func.items():
 
             print(f'{k}. {i}')
 
@@ -39,8 +39,8 @@ def get_data_2():
 
         case '1':
 
-            print(helper.second_dict_with_name_func[int(encryption_method)][0]())
+            print(helper.name_func_to_func[int(encryption_method)][0]())
 
         case '2':
 
-            print(helper.second_dict_with_name_func[int(encryption_method)][1]())
+            print(helper.name_func_to_func[int(encryption_method)][1]())

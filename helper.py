@@ -11,7 +11,7 @@ from full_viginer_encryption.helper_full_viginer import help_encode_full_viginer
 from viginer_encryption.helper_viginer import help_encode_viginer, help_decode_viginer
 
 
-dict_with_name_func = {
+name_func = {
 
         1: 'shift encryption',
         2: 'full shift encryption',
@@ -22,7 +22,7 @@ dict_with_name_func = {
 
     }
 
-second_dict_with_name_func = {
+name_func_to_func = {
 
         1: [help_encode_shift, help_decode_shift],
         2: [help_encode_full_shift, help_decode_full_shift],

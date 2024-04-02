@@ -8,7 +8,7 @@ def get_data_1():
 
         print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
 
-        for k, i in helper.dict_with_name_func.items():
+        for k, i in helper.name_func.items():
 
             print(f'{k}. {i}')
 
@@ -56,8 +56,8 @@ def get_data_1():
 
         case '1':
 
-            helper.second_dict_with_name_func[int(encryption_method)][0](content, file_name)
+            helper.name_func_to_func[int(encryption_method)][0](content, file_name)
 
         case '2':
 
-            helper.second_dict_with_name_func[int(encryption_method)][1](content, file_name)
+            helper.name_func_to_func[int(encryption_method)][1](content, file_name)
