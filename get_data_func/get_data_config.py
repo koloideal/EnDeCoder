@@ -1,5 +1,6 @@
 import json
-from utils_func.action_0_data_3 import action_0_data_3
+from add_config_func.add_config_helper import add_config
+from del_config_func.del_config_helper import del_config
 from atbash_encryption.helper_atbash import help_encode_atbash, help_decode_atbash
 from user_encryption.helper_user import help_encode_user, help_decode_user
 from full_shift_encryption.helper_full_shift import help_encode_full_shift, help_decode_full_shift
@@ -20,7 +21,7 @@ name_func = {
     }
 
 
-def get_data_3():
+def get_data_config():
 
     with open('configs.json', 'r', encoding='utf8') as config_file:
 
@@ -42,7 +43,9 @@ def get_data_3():
 
         try:
 
-            action: int = int(input('Enter action(0, to add a config or config id): '))
+            action: str = input('Enter(0, to add config, -0 to delete config or config id): ')
+
+            int_action: int = int(action)
 
         except ValueError:
 
@@ -50,9 +53,15 @@ def get_data_3():
 
             continue
 
-        if action == 0:
+        if int_action == 0 and action != '-0':
 
-            action_0_data_3()
+            add_config()
+
+            return
+
+        elif action == '-0':
+
+            del_config()
 
             return
 
@@ -62,7 +71,7 @@ def get_data_3():
 
             for config in configs:
 
-                if configs[config]["id"] == int(action):
+                if configs[config]["id"] == int_action:
 
                     print(f'\nConfig "{config}" is selected')
 

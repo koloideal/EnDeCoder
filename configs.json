@@ -1,0 +1,33 @@
+{
+    "config_1": {
+        "id": 1,
+        "method_encryption": "viginer encryption",
+        "encode/decode": "decode",
+        "key_word": "test",
+        "save_register": true,
+        "where_get_data": "manual"
+    },
+    "config_2": {
+        "id": 4,
+        "method_encryption": "viginer encryption",
+        "encode/decode": "decode",
+        "key_word": "test",
+        "save_register": true,
+        "where_get_data": "manual"
+    },
+    "fvse": {
+        "id": 9,
+        "method_encryption": "full shift encryption",
+        "encode/decode": "encode",
+        "shift": 3,
+        "where_get_data": "manual"
+    },
+    "1": {
+        "id": 10,
+        "method_encryption": "shift encryption",
+        "encode/decode": "encode",
+        "shift": 1,
+        "save_register": true,
+        "where_get_data": "manual"
+    }
+}

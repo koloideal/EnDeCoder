@@ -5,11 +5,11 @@ from user_encryption.choose_input_method.config_input import helper_encode_confi
 
 def help_encode_user(file_content: list = None, file_locate: str = None, data: dict = None) -> str or None:
 
-    if file_content:
+    if file_content and not data:
 
         helper_encode_file_input(file_content, file_locate)
 
-    elif data:
+    elif data and not file_content:
 
         helper_encode_config_input(data)
 
@@ -20,11 +20,11 @@ def help_encode_user(file_content: list = None, file_locate: str = None, data: d
 
 def help_decode_user(file_content: list = None, file_locate: str = None, data: dict = None) -> str or None:
 
-    if file_content:
+    if file_content and not data:
 
         helper_decode_file_input(file_content, file_locate)
 
-    elif data:
+    elif data and not file_content:
 
         helper_decode_config_input(data)
 

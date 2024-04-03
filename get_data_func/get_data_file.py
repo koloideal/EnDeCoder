@@ -2,7 +2,7 @@ import os
 import helper
 
 
-def get_data_1():
+def get_data_file():
 
     while True:
 

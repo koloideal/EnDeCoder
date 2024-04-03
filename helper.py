@@ -1,8 +1,8 @@
 import datetime
 import os
-from utils_func.get_data_1 import get_data_1
-from utils_func.get_data_2 import get_data_2
-from utils_func.get_data_3 import get_data_3
+from get_data_func.get_data_file import get_data_file
+from get_data_func.get_data_manual import get_data_manual
+from get_data_func.get_data_config import get_data_config
 from atbash_encryption.helper_atbash import help_encode_atbash, help_decode_atbash
 from user_encryption.helper_user import help_encode_user, help_decode_user
 from full_shift_encryption.helper_full_shift import help_encode_full_shift, help_decode_full_shift
@@ -63,12 +63,12 @@ def helper() -> None:
 
     if where_get_data == '1':
 
-        get_data_1()
+        get_data_file()
 
     elif where_get_data == '2':
 
-        get_data_2()
+        get_data_manual()
 
     else:
 
-        get_data_3()
+        get_data_config()

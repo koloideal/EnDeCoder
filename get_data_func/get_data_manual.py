@@ -1,7 +1,7 @@
 import helper
 
 
-def get_data_2():
+def get_data_manual():
 
     while True:
 
