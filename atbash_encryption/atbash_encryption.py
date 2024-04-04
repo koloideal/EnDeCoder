@@ -55,16 +55,17 @@ def encode_atbash_encryption(string: str, save_register: bool = False) -> str:
 
 def decode_atbash_encryption(string: str, save_register: bool = False) -> str:
 
-    """ This decryption function takes an encrypted string as an argument and returns the decrypted string; the
-    essence of decryption is that each letter of the transmitted string is replaced by a "mirror" letter in the
-    alphabet, that is: the letter "a" is replaced by "z", "b" by "y", and so on, in the template the form it looks
-    like this: &" -> 26 - &', where &" is the ordinal number of the letter of the transmitted string, and &' is the
-    ordinal number of the letter of the output string; all non-alphabetic characters, that is, characters between [0;
-    65) && (90; 97) && (122; 127] in the ASCII table, during encryption and decryption, they will be ignored and will
-    not be encrypted, but at the same time in the output string they will remain in the same places where they were
-    in the transmitted string; the function has a second optional argument save_register, the default value is False,
-    with this value the case of the output string will be converted to the lower case case, if the argument is True,
-    then the case of each letter in the output string will correspond to the case of the corresponding letter in the
-    transmitted string; important: the number of characters in the transmitted and output strings is always equal! """
+    """This decryption function takes an encrypted string as an argument and returns the decrypted
+    string; the essence of decryption is that each letter of the transmitted string is replaced by a "mirror" letter
+    in the alphabet, that is: the letter "a" is replaced by "z", "b" by "y", and so on, in the template the form it
+    looks like this: &" -> 26 - &', where &" is the ordinal number of the letter of the transmitted string,
+    and &' is the ordinal number of the letter of the output string; all non-alphabetic characters, that is,
+    characters between [0; 65) && (90; 97) && (122; 127] in the ASCII table, during encryption and decryption,
+    they will be ignored and will not be encrypted, but at the same time in the output string they will remain in the
+    same places where they were in the transmitted string; the function has a second optional argument save_register,
+    the default value is False, with this value the case of the output string will be converted to the lower case
+    case, if the argument is True, then the case of each letter in the output string will correspond to the case of
+    the corresponding letter in the transmitted string; important: the number of characters in the transmitted and
+    output strings is always equal!"""
 
     return encode_atbash_encryption(string, save_register)

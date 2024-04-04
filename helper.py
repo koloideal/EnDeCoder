@@ -3,6 +3,7 @@ import os
 from get_data_func.get_data_file import get_data_file
 from get_data_func.get_data_manual import get_data_manual
 from get_data_func.get_data_config import get_data_config
+from help_func.get_help import get_help
 from atbash_encryption.helper_atbash import help_encode_atbash, help_decode_atbash
 from user_encryption.helper_user import help_encode_user, help_decode_user
 from full_shift_encryption.helper_full_shift import help_encode_full_shift, help_decode_full_shift
@@ -49,11 +50,12 @@ def helper() -> None:
     while True:
 
         where_get_data = input('Здравствуй, выбери откуда кодировать/декодировать текст?(Введи цифру)\n'
+                               '0. Получить справку о методах кодирования\n'
                                '1. Из файла\n'
                                '2. Набрать вручную\n'
                                '3. Выбрать сохранённую конфигурацию\n')
 
-        if where_get_data not in ['1', '2', '3']:
+        if where_get_data not in ['0', '1', '2', '3']:
 
             continue
 
@@ -69,6 +71,10 @@ def helper() -> None:
 
         get_data_manual()
 
-    else:
+    elif where_get_data == '3':
 
         get_data_config()
+
+    else:
+
+        get_help()

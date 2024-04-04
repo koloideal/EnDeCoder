@@ -107,3 +107,11 @@ def add_config() -> None:
         case '6':
 
             config_full_viginer(id_config, name_config, where_get_data, encode_decode)
+
+    print(f'\nКонфиг "{name_config}" создан\n')
+
+    print('Возврат в режим выбора действий\n')
+
+    helper.helper()
+
+    return

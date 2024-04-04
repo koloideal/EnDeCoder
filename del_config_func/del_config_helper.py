@@ -2,23 +2,13 @@ import json
 import helper
 
 
-def del_config():
+def del_config() -> None:
 
     with open("configs.json", "r", encoding='utf8') as config_file:
 
         configs = json.load(config_file)
 
     print('\nРежим удаления конфигурации')
-
-    for k, config in enumerate(configs):
-
-        print(f'{k + 1}.\tname : {config}')
-
-        for j in configs[config]:
-
-            print(f'\t{j} : {configs[config][j]}')
-
-        print()
 
     while True:
 
@@ -52,4 +42,8 @@ def del_config():
 
             print('Возврат в режим выбора действий\n')
 
-            helper.helper()
+            break
+
+    helper.helper()
+
+    return
