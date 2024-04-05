@@ -22,9 +22,9 @@ def encode_viginer_encryption(string: str, key_word: str, save_register: bool = 
 
             first_step_list.append(i)
 
-        key_word_list = [ord(x) - 96 for x in key_word]
+        key_word_list: list = [ord(x) - 96 for x in key_word]
 
-        result = get_chr_encode(first_step_list, key_word_list, save_register, string)
+        result: str = get_chr_encode(first_step_list, key_word_list, save_register, string)
 
         return result
 
@@ -57,9 +57,9 @@ def decode_viginer_encryption(string: str, key_word: str, save_register: bool = 
 
             first_step_list.append(i)
 
-        key_word_list = [ord(x) - 96 for x in key_word]
+        key_word_list: list = [ord(x) - 96 for x in key_word]
 
-        result = get_chr_decode(first_step_list, key_word_list, save_register, string)
+        result: str = get_chr_decode(first_step_list, key_word_list, save_register, string)
 
         return result
 

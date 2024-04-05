@@ -9,7 +9,7 @@ from full_viginer_encryption.helper_full_viginer import help_encode_full_viginer
 from viginer_encryption.helper_viginer import help_encode_viginer, help_decode_viginer
 
 
-name_func = {
+name_func: dict = {
 
     'shift encryption': [help_encode_shift, help_decode_shift],
     'full shift encryption': [help_encode_full_shift, help_decode_full_shift],
@@ -21,11 +21,11 @@ name_func = {
     }
 
 
-def get_data_config():
+def get_data_config() -> None:
 
     with open('configs.json', 'r', encoding='utf8') as config_file:
 
-        configs = json.load(config_file)
+        configs: json = json.load(config_file)
 
         print()
 
@@ -49,7 +49,7 @@ def get_data_config():
 
         except ValueError:
 
-            print('Config not find\n')
+            print('Config was not found\n')
 
             continue
 
@@ -75,30 +75,30 @@ def get_data_config():
 
                     print(f'\nConfig "{config}" is selected')
 
-                    data = {}
+                    data: dict = {}
 
                     for single_data in configs[config]:
 
                         data[single_data] = configs[config][single_data]
 
-                    be_config = True
+                    be_config: bool = True
 
                     break
 
             if not be_config:
 
-                print('Config not find\n')
+                print('Config was not found\n')
 
             else:
 
                 break
 
-    match data["encode/decode"]:
+    match data['encode/decode']:
 
-        case "encode":
+        case 'encode':
 
-            name_func[data["method_encryption"]][0](data=data)
+            name_func[data['method_encryption']][0](data=data)
 
-        case "decode":
+        case 'decode':
 
-            name_func[data["method_encryption"]][1](data=data)
+            name_func[data['method_encryption']][1](data=data)

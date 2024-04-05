@@ -4,25 +4,25 @@ import helper
 
 def del_config() -> None:
 
-    with open("configs.json", "r", encoding='utf8') as config_file:
+    with open('configs.json', 'r', encoding='utf8') as config_file:
 
-        configs = json.load(config_file)
+        configs: json = json.load(config_file)
 
-    print('\nРежим удаления конфигурации')
+    print('\nConfiguration deletion mode')
 
     while True:
 
-        name_config = input('\nВведи название конфигурации для удаления\n')
+        name_config: str = input('\nEnter the name of the configuration to delete\n')
 
         if name_config not in configs:
 
-            print('Такого конфига не существует')
+            print('There is no such config')
 
             continue
 
         elif name_config in ['config_1', 'config_2']:
 
-            print('Вы не можете удалить дефолтные конфиги')
+            print('You cannot delete default configs')
 
             continue
 
@@ -30,7 +30,7 @@ def del_config() -> None:
 
             with open('configs.json', 'r+', encoding='utf8') as config_file:
 
-                configs = json.load(config_file)
+                configs: json = json.load(config_file)
 
                 configs.pop(name_config)
 
@@ -38,9 +38,9 @@ def del_config() -> None:
 
                 json.dump(configs, file, indent=4)
 
-            print(f'\nКонфиг "{name_config}" удалён\n')
+            print(f'\nConfig "{name_config}" has been deleted\n')
 
-            print('Возврат в режим выбора действий\n')
+            print('Return to the action selection mode\n')
 
             break
 

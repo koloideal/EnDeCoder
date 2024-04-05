@@ -1,8 +1,8 @@
 def get_chr_encode(first_list: list, list_of_key_word: list, save_register: bool, string: str) -> str:
 
-    second_step_list = []
+    second_step_list: list = []
 
-    n = 0
+    n: int = 0
 
     for i in first_list:
 
@@ -32,7 +32,7 @@ def get_chr_encode(first_list: list, list_of_key_word: list, save_register: bool
 
         except IndexError:
 
-            n = 0
+            n: int = 0
 
             if isinstance(i, str):
 
@@ -56,11 +56,11 @@ def get_chr_encode(first_list: list, list_of_key_word: list, save_register: bool
 
                 continue
 
-    third_step_list = [chr(x + 96) if isinstance(x, int) else x for x in second_step_list]
+    third_step_list: list = [chr(x + 96) if isinstance(x, int) else x for x in second_step_list]
 
     if save_register:
 
-        fourth_step_list = []
+        fourth_step_list: list = []
 
         for k, i in enumerate(third_step_list):
 
@@ -81,9 +81,9 @@ def get_chr_encode(first_list: list, list_of_key_word: list, save_register: bool
 
 def get_chr_decode(first_list: list, list_of_key_word: list, save_register: bool, string: str) -> str:
 
-    second_step_list = []
+    second_step_list: list = []
 
-    n = 0
+    n: int = 0
 
     for i in first_list:
 
@@ -113,7 +113,7 @@ def get_chr_decode(first_list: list, list_of_key_word: list, save_register: bool
 
         except IndexError:
 
-            n = 0
+            n: int = 0
 
             if isinstance(i, str):
 
@@ -137,11 +137,11 @@ def get_chr_decode(first_list: list, list_of_key_word: list, save_register: bool
 
                 continue
 
-    third_step_list = [chr(x + 96) if isinstance(x, int) else x for x in second_step_list]
+    third_step_list: list = [chr(x + 96) if isinstance(x, int) else x for x in second_step_list]
 
     if save_register:
 
-        fourth_step_list = []
+        fourth_step_list: list = []
 
         for k, i in enumerate(third_step_list):
 

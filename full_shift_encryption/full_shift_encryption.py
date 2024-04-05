@@ -4,13 +4,13 @@ import datetime
 def encode_full_shift_encryption(shift: int, string: str) -> str:
 
     """ This encryption function takes a shift and a string as arguments and returns an encrypted string; the essence
-        of encryption is that each character of the transmitted string is replaced by a character whose ordinal number
-        is equal to the ordinal number of the original character plus the value of the argument "shift", that is,
-        the so-called "shift" occurs according to the ASCII table; the value of the argument "the shift" can only be an
-        integer in the interval (0; 95), if the value goes beyond this encryption interval is abnormal and most likely
-        will not be able to be decrypted, the value of the "string" argument can only be a string, while each ordinal
-        number of the character in the argument should not go beyond the interval [32; 126]; important: the number of
-        characters in the transmitted and output strings It's always the same! """
+    of encryption is that each character of the transmitted string is replaced by a character whose ordinal number
+    is equal to the ordinal number of the original character plus the value of the argument "shift", that is,
+    the so-called "shift" occurs according to the ASCII table; the value of the argument "the shift" can only be an
+    integer in the interval (0; 95), if the value goes beyond this encryption interval is abnormal and most likely
+    will not be able to be decrypted, the value of the "string" argument can only be a string, while each ordinal
+    number of the character in the argument should not go beyond the interval [32; 126]; important: the number of
+    characters in the transmitted and output strings It's always the same! """
 
     try:
 

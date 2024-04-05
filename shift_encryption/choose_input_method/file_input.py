@@ -5,11 +5,11 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
@@ -21,7 +21,7 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
@@ -41,7 +41,7 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
                     file.write((encode_shift_encryption(shift, line, bool(int(save_register)))) + '\n')
 
-            print(f'\nФайл {file_locate}(encoded).txt успешно создан')
+            print(f'\nFile "{file_locate}(encoded).txt" successfully created')
 
             break
 
@@ -50,11 +50,11 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
@@ -66,7 +66,7 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
@@ -86,6 +86,6 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
                     file.write((decode_shift_encryption(shift, line, bool(int(save_register)))) + '\n')
 
-            print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+            print(f'\nFile "{file_locate}(decoded).txt" successfully created')
 
             break

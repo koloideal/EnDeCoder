@@ -5,11 +5,11 @@ def helper_encode_manual_input() -> str:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
@@ -17,13 +17,13 @@ def helper_encode_manual_input() -> str:
 
             break
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
@@ -44,11 +44,11 @@ def helper_decode_manual_input() -> str:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
@@ -56,13 +56,13 @@ def helper_decode_manual_input() -> str:
 
             break
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 

@@ -49,7 +49,7 @@ def encode_shift_encryption(shift: int, string: str, save_register: bool = False
 
         else:
 
-            result = ''.join(result_chr)
+            result: str = ''.join(result_chr)
 
             return result
 
@@ -108,7 +108,7 @@ def decode_shift_encryption(shift: int, string: str, save_register: bool = False
 
         else:
 
-            result = ''.join(result_chr)
+            result: str = ''.join(result_chr)
 
             return result
 

@@ -1,23 +1,23 @@
 import json
 
 
-def config_atbash(id_config, name_config, where_get_data, encoding_or_decoding):
+def config_atbash(id_config: int, name_config: str, where_get_data: str, encoding_or_decoding: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
         else:
 
-            save_register = bool(int(save_register))
+            save_register: bool = bool(int(save_register))
 
-            config = {
+            config: json = {
 
                 "id": id_config,
                 "method_encryption": "atbash encryption",
@@ -27,11 +27,11 @@ def config_atbash(id_config, name_config, where_get_data, encoding_or_decoding):
 
             }
 
-            with open('configs.json', 'r+') as file:
+            with open('configs.json', 'r+', encoding='utf8') as file:
 
-                file_data = json.load(file)
+                file_data: json = json.load(file)
 
-                file_data[name_config] = config
+                file_data[name_config]: json = config
 
                 file.seek(0)
 

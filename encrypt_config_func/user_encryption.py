@@ -1,13 +1,13 @@
 import json
 
 
-def config_user(id_config, name_config, where_get_data, encoding_or_decoding):
+def config_user(id_config: int, name_config: str, where_get_data: str, encoding_or_decoding: str) -> None:
 
-    encryption_symbols = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+    encryption_symbols: str = input('\nEnter the dictionary in the format: """ a:b, g:o, y:p """: ')
 
     while True:
 
-        escape_symbol = input('\nВведите символ для экранирования: ')
+        escape_symbol: str = input('\nEnter the character to escape: ')
 
         if not len(escape_symbol) == 1:
 
@@ -17,7 +17,7 @@ def config_user(id_config, name_config, where_get_data, encoding_or_decoding):
 
         else:
 
-            config = {
+            config: json = {
 
                 "id": id_config,
                 "method_encryption": "user encryption",
@@ -28,11 +28,11 @@ def config_user(id_config, name_config, where_get_data, encoding_or_decoding):
 
             }
 
-            with open('configs.json', 'r+') as file:
+            with open('configs.json', 'r+', encoding='utf8') as file:
 
-                file_data = json.load(file)
+                file_data: json = json.load(file)
 
-                file_data[name_config] = config
+                file_data[name_config]: json = config
 
                 file.seek(0)
 

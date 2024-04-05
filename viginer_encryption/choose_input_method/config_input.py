@@ -4,27 +4,27 @@ import os
 
 def helper_encode_config_input(data: dict) -> None:
 
-    match data["where_get_data"]:
+    match data['where_get_data']:
 
-        case "file":
+        case 'file':
 
             while True:
 
-                file_name = input("\nВведи название файла без расширения: ")
+                file_name: str = input('\nEnter the name of the file without the extension: ')
 
                 if os.path.isfile(f'content/{file_name}.txt'):
 
                     with open(f'content/{file_name}.txt', 'r', encoding='utf8') as file:
 
-                        content = file.read().split('\n')
+                        content: list = file.read().split('\n')
 
-                    list_with_len_lines = [len(line) for line in content]
+                    list_with_len_lines: list = [len(line) for line in content]
 
-                    encoded_string = encode_viginer_encryption(''.join(content), data["key_word"], data["save_register"])
+                    encoded_string: str = encode_viginer_encryption(''.join(content), data["key_word"], data["save_register"])
 
-                    result_list = []
+                    result_list: list = []
 
-                    long = 0
+                    long: int = 0
 
                     for line in list_with_len_lines:
 
@@ -38,48 +38,48 @@ def helper_encode_config_input(data: dict) -> None:
 
                             file.write(line + '\n')
 
-                    print(f'\nФайл {file_name}(encoded).txt успешно создан')
+                    print(f'\nFile "{file_name}(encoded).txt" successfully created')
 
                     break
 
                 else:
 
-                    print('Файл не найден')
+                    print('File was not found')
 
                     continue
 
-        case "manual":
+        case 'manual':
 
-            string = input("\nВведите строку: ")
+            string: str = input('\nEnter the text: ')
 
-            print(encode_viginer_encryption(string, data["key_word"], data["save_register"]))
+            print(encode_viginer_encryption(string, data['key_word'], data['save_register']))
 
             return
 
 
 def helper_decode_config_input(data: dict) -> None:
 
-    match data["where_get_data"]:
+    match data['where_get_data']:
 
-        case "file":
+        case 'file':
 
             while True:
 
-                file_name = input("\nВведи название файла без расширения: ")
+                file_name: str = input('\nEnter the name of the file without the extension: ')
 
                 if os.path.isfile(f'content/{file_name}.txt'):
 
                     with open(f'content/{file_name}.txt', 'r', encoding='utf8') as file:
 
-                        content = file.read().split('\n')
+                        content: list = file.read().split('\n')
 
-                    list_with_len_lines = [len(line) for line in content]
+                    list_with_len_lines: list = [len(line) for line in content]
 
-                    encoded_string = decode_viginer_encryption(''.join(content), data["key_word"], data["save_register"])
+                    encoded_string: str = decode_viginer_encryption(''.join(content), data['key_word'], data['save_register'])
 
-                    result_list = []
+                    result_list: list = []
 
-                    long = 0
+                    long: int = 0
 
                     for line in list_with_len_lines:
 
@@ -93,20 +93,20 @@ def helper_decode_config_input(data: dict) -> None:
 
                             file.write(line + '\n')
 
-                    print(f'\nФайл {file_name}(decoded).txt успешно создан')
+                    print(f'\nFile "{file_name}(decoded).txt" successfully created')
 
                     break
 
                 else:
 
-                    print('Файл не найден')
+                    print('File was not found')
 
                     continue
 
-        case "manual":
+        case 'manual':
 
-            string = input("\nВведите строку: ")
+            string: str = input('\nEnter the text: ')
 
-            print(decode_viginer_encryption(string, data["key_word"], data["save_register"]))
+            print(decode_viginer_encryption(string, data['key_word'], data['save_register']))
 
             return

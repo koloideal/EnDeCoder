@@ -14,12 +14,5 @@
         "key_word": "test",
         "save_register": true,
         "where_get_data": "manual"
-    },
-    "test": {
-        "id": 3,
-        "method_encryption": "full shift encryption",
-        "encode/decode": "decode",
-        "shift": 14,
-        "where_get_data": "file"
     }
 }

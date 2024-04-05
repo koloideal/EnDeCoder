@@ -1,8 +1,8 @@
 def get_chr_encode(first_list: list, list_of_key_word: list) -> str:
 
-    second_step_list = []
+    second_step_list: list = []
 
-    n = 0
+    n: int = 0
 
     for i in first_list:
 
@@ -22,7 +22,7 @@ def get_chr_encode(first_list: list, list_of_key_word: list) -> str:
 
         except IndexError:
 
-            n = 0
+            n: int = 0
 
             if (i + list_of_key_word[n] + 31) < 127:
 
@@ -41,9 +41,9 @@ def get_chr_encode(first_list: list, list_of_key_word: list) -> str:
 
 def get_chr_decode(first_list: list, list_of_key_word: list) -> str:
 
-    second_step_list = []
+    second_step_list: list = []
 
-    n = 0
+    n: int = 0
 
     for i in first_list:
 
@@ -63,7 +63,7 @@ def get_chr_decode(first_list: list, list_of_key_word: list) -> str:
 
         except IndexError:
 
-            n = 0
+            n: int = 0
 
             if (i - list_of_key_word[n]) > 0:
 

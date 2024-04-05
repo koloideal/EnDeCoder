@@ -5,11 +5,11 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
@@ -21,7 +21,7 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
                     file.write(encode_atbash_encryption(line, bool(int(save_register))) + '\n')
 
-            print(f'\nФайл {file_locate}(encoded).txt успешно создан')
+            print(f'\nFile "{file_locate}(encoded).txt" successfully created')
 
             break
 
@@ -30,11 +30,11 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да): ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
-            print('Входные данные могут быть только 0 или 1')
+            print('The input data can only be 0 or 1')
 
             continue
 
@@ -43,8 +43,9 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
             with open(f'content/{file_locate}(decoded).txt', 'w', encoding='utf8') as file:
 
                 for line in file_content:
+
                     file.write(decode_atbash_encryption(line, bool(int(save_register))) + '\n')
 
-            print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+            print(f'\nFile {file_locate}(decoded).txt successfully created')
 
             break

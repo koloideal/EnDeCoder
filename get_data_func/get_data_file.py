@@ -2,17 +2,17 @@ import os
 import helper
 
 
-def get_data_file():
+def get_data_file() -> None:
 
     while True:
 
-        print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
+        print('\nChoose a way to encrypt/decrypt the text (Enter a number)')
 
         for k, i in helper.name_func.items():
 
             print(f'{k}. {i}')
 
-        encryption_method = input()
+        encryption_method: str = input()
 
         if encryption_method not in ['1', '2', '3', '4', '5', '6']:
 
@@ -24,9 +24,9 @@ def get_data_file():
 
     while True:
 
-        encoding_or_decoding = input('\nНеобходимо шифровать или расшифровать текст?(Введи цифру)\n'
-                                     '1. Шифровать\n'
-                                     '2. Расшифровать\n')
+        encoding_or_decoding: str = input('\nDo I need to encrypt or decrypt the text?(Enter a number)\n'
+                                          '1. Encode\n'
+                                          '2. Decode\n')
 
         if encoding_or_decoding not in ['1', '2']:
 
@@ -38,19 +38,19 @@ def get_data_file():
 
     while True:
 
-        file_name = input("\nВведи название файла без расширения: ")
+        file_name: str = input('\nEnter the name of the file without the extension: ')
 
         if os.path.isfile(f'content/{file_name}.txt'):
 
             with open(f'content/{file_name}.txt', 'r', encoding='utf8') as file:
 
-                content = file.read().split('\n')
+                content: list = file.read().split('\n')
 
             break
 
         else:
 
-            print('Файл не найден')
+            print('File was not found')
 
     match encoding_or_decoding:
 

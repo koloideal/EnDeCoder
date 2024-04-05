@@ -1,17 +1,17 @@
 import helper
 
 
-def get_data_manual():
+def get_data_manual() -> None:
 
     while True:
 
-        print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
+        print('\nChoose a way to encrypt/decrypt the text (Enter a number)')
 
         for k, i in helper.name_func.items():
 
             print(f'{k}. {i}')
 
-        encryption_method = input()
+        encryption_method: str = input()
 
         if encryption_method not in ['1', '2', '3', '4', '5', '6']:
 
@@ -23,9 +23,9 @@ def get_data_manual():
 
     while True:
 
-        encoding_or_decoding = input('\nНеобходимо шифровать или расшифровать текст?(Введи цифру)\n'
-                                     '1. Шифровать\n'
-                                     '2. Расшифровать\n')
+        encoding_or_decoding: str = input('\nDo I need to encrypt or decrypt the text?(Enter a number)\n'
+                                          '1. Encode\n'
+                                          '2. Decode\n')
 
         if encoding_or_decoding not in ['1', '2']:
 

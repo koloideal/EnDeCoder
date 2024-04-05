@@ -3,15 +3,15 @@ from full_viginer_encryption.full_viginer_encryption import encode_full_viginer_
 
 def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
-    key_word = input("\nВведите ключ-фразу: ")
+    key_word: str = input('\nEnter the passphrase: ')
 
-    list_with_len_lines = [len(line) for line in file_content]
+    list_with_len_lines: list = [len(line) for line in file_content]
 
-    encoded_string = encode_full_viginer_encryption(''.join(file_content), key_word)
+    encoded_string: str = encode_full_viginer_encryption(''.join(file_content), key_word)
 
-    result_list = []
+    result_list: list = []
 
-    long = 0
+    long: int = 0
 
     for line in list_with_len_lines:
 
@@ -25,22 +25,22 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
             file.write(line + '\n')
 
-    print(f'\nФайл {file_locate}(encoded).txt успешно создан')
+    print(f'\nFile {file_locate}(encoded).txt successfully created')
 
     return
 
 
 def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
-    key_word = input("\nВведите ключ-фразу: ")
+    key_word: str = input('\nEnter the passphrase: ')
 
-    list_with_len_lines = [len(line) for line in file_content]
+    list_with_len_lines: list = [len(line) for line in file_content]
 
-    decoded_string = decode_full_viginer_encryption(''.join(file_content), key_word)
+    decoded_string: str = decode_full_viginer_encryption(''.join(file_content), key_word)
 
-    result_list = []
+    result_list: list = []
 
-    long = 0
+    long: int = 0
 
     for line in list_with_len_lines:
 
@@ -54,6 +54,6 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
             file.write(line + '\n')
 
-    print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+    print(f'\nFile "{file_locate}(decoded).txt" successfully created')
 
     return

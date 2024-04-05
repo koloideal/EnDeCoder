@@ -17,9 +17,9 @@ def encode_user_encryption(encryption_symbols: dict, string: str, escape_symbol:
 
     try:
 
-        more_str = ''
+        more_str: str = ''
 
-        result = ''
+        result: str = ''
 
         for i in string:
 
@@ -68,7 +68,7 @@ def decode_user_encryption(encryption_symbols: dict, string: str, escape_symbol:
 
     try:
 
-        result = ''
+        result: str = ''
 
         for k, i in enumerate(string):
 

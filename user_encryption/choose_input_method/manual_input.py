@@ -3,19 +3,19 @@ from user_encryption.user_encryption import encode_user_encryption, decode_user_
 
 def helper_encode_manual_input() -> str:
 
-    encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+    encryption_symbols_str: str = input('\nEnter the dictionary in the format: """ a:b, g:o, y:p """: ')
 
-    encryption_symbols = {}
+    encryption_symbols: dict = {}
 
     for i in encryption_symbols_str.split(','):
 
         encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
-        escape_symbol = input('\nВведите символ для экранирования: ')
+        escape_symbol: str = input('\nEnter the character to escape: ')
 
         if not len(escape_symbol) == 1:
 
@@ -30,19 +30,19 @@ def helper_encode_manual_input() -> str:
 
 def helper_decode_manual_input() -> str:
 
-    encryption_symbols_str = input("\nВведите словарь в формате: ''' a:b, g:o, y:p ''': ")
+    encryption_symbols_str: str = input('\nEnter the dictionary in the format: """ a:b, g:o, y:p """: ')
 
-    encryption_symbols = {}
+    encryption_symbols: dict = {}
 
     for i in encryption_symbols_str.split(','):
 
         encryption_symbols[i.replace(' ', '')[0]] = i.replace(' ', '')[2]
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
-        escape_symbol = input('\nВведите символ для экранирования: ')
+        escape_symbol: str = input('\nEnter the character to escape: ')
 
         if not len(escape_symbol) == 1:
 

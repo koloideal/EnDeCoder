@@ -1,11 +1,11 @@
 import json
 
 
-def config_viginer(id_config, name_config, where_get_data, encoding_or_decoding):
+def config_viginer(id_config: int, name_config: str, where_get_data: str, encoding_or_decoding: str) -> None:
 
     while True:
 
-        key_word = input("\nВведите ключ-фразу: ")
+        key_word: str = input("\nEnter the passphrase: ")
 
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
@@ -20,7 +20,7 @@ def config_viginer(id_config, name_config, where_get_data, encoding_or_decoding)
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да) ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
@@ -30,9 +30,9 @@ def config_viginer(id_config, name_config, where_get_data, encoding_or_decoding)
 
         else:
 
-            save_register = bool(int(save_register))
+            save_register: bool = bool(int(save_register))
 
-            config = {
+            config: json = {
 
                 "id": id_config,
                 "method_encryption": "viginer encryption",
@@ -43,11 +43,11 @@ def config_viginer(id_config, name_config, where_get_data, encoding_or_decoding)
 
             }
 
-            with open('configs.json', 'r+') as file:
+            with open('configs.json', 'r+', encoding='utf8') as file:
 
-                file_data = json.load(file)
+                file_data: json = json.load(file)
 
-                file_data[name_config] = config
+                file_data[name_config]: json = config
 
                 file.seek(0)
 

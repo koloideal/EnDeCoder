@@ -4,81 +4,81 @@ import os
 
 def helper_encode_config_input(data: dict) -> None:
 
-    match data["where_get_data"]:
+    match data['where_get_data']:
 
-        case "file":
+        case 'file':
 
             while True:
 
-                file_name = input("\nВведи название файла без расширения: ")
+                file_name: str = input('\nEnter the name of the file without the extension: ')
 
                 if os.path.isfile(f'content/{file_name}.txt'):
 
                     with open(f'content/{file_name}.txt', 'r', encoding='utf8') as file:
 
-                        content = file.read().split('\n')
+                        content: list = file.read().split('\n')
 
                     with open(f'content/{file_name}(encoded).txt', 'w', encoding='utf8') as file:
 
                         for line in content:
 
-                            file.write((encode_full_shift_encryption(data["shift"], line)) + '\n')
+                            file.write((encode_full_shift_encryption(data['shift'], line)) + '\n')
 
-                    print(f'\nФайл {file_name}(encoded).txt успешно создан')
+                    print(f'\nFile "{file_name}(encoded).txt" successfully created')
 
                     return
 
                 else:
 
-                    print('Файл не найден')
+                    print('The file was not found')
 
                     continue
 
-        case "manual":
+        case 'manual':
 
-            string = input("\nВведите строку: ")
+            string: str = input('\nEnter the text: ')
 
-            print(encode_full_shift_encryption(data["shift"], string))
+            print(encode_full_shift_encryption(data['shift'], string))
 
             return
 
 
 def helper_decode_config_input(data: dict) -> None:
 
-    match data["where_get_data"]:
+    match data['where_get_data']:
 
-        case "file":
+        case 'file':
 
             while True:
 
-                file_name = input("\nВведи название файла без расширения: ")
+                file_name: str = input('\nEnter the name of the file without the extension: ')
 
                 if os.path.isfile(f'content/{file_name}.txt'):
 
                     with open(f'content/{file_name}.txt', 'r', encoding='utf8') as file:
 
-                        content = file.read().split('\n')
+                        content: list = file.read().split('\n')
 
                     with open(f'content/{file_name}(decoded).txt', 'w', encoding='utf8') as file:
 
                         for line in content:
 
-                            file.write((decode_full_shift_encryption(data["shift"], line)) + '\n')
+                            file.write((decode_full_shift_encryption(data['shift'], line)) + '\n')
 
-                    print(f'\nФайл {file_name}(decoded).txt успешно создан')
+                    print(f'\nFile {file_name}(decoded).txt successfully created')
 
                     return
 
                 else:
 
-                    print('Файл не найден')
+                    print('The file was not found')
 
                     continue
 
-        case "manual":
+        case 'manual':
 
-            string = input("\nВведите строку: ")
+            string: str = input('\nEnter the text: ')
 
-            print(decode_full_shift_encryption(data["shift"], string))
+            print(decode_full_shift_encryption(data['shift'], string))
 
             return

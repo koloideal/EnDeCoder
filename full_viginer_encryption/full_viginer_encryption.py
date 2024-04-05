@@ -16,9 +16,9 @@ def encode_full_viginer_encryption(string: str, key_word: str) -> str:
 
         first_step_list: list = [ord(x) - 31 for x in string]
 
-        key_word_list = [ord(x) - 31 for x in key_word]
+        key_word_list: list = [ord(x) - 31 for x in key_word]
 
-        result = get_chr_encode(first_step_list, key_word_list)
+        result: str = get_chr_encode(first_step_list, key_word_list)
 
         return result
 
@@ -45,9 +45,9 @@ def decode_full_viginer_encryption(string: str, key_word: str) -> str:
 
         first_step_list: list = [ord(x) - 31 for x in string]
 
-        key_word_list = [ord(x) - 31 for x in key_word]
+        key_word_list: list = [ord(x) - 31 for x in key_word]
 
-        result = get_chr_decode(first_step_list, key_word_list)
+        result: str = get_chr_decode(first_step_list, key_word_list)
 
         return result
 

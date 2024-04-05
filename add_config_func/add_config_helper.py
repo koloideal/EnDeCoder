@@ -10,17 +10,17 @@ import json
 
 def add_config() -> None:
 
-    with open("configs.json", "r", encoding='utf8') as config_file:
+    with open('configs.json', 'r', encoding='utf8') as config_file:
 
-        configs = json.load(config_file)
+        configs: json = json.load(config_file)
 
-        id_config = max([configs[x]["id"] for x in configs]) + 1
+        id_config: int = max([configs[x]['id'] for x in configs]) + 1
 
-    print('\nРежим добавления конфигурации')
+    print('\nConfiguration addition mode')
 
     while True:
 
-        name_config = input('\nВведи название конфигурации\n')
+        name_config: str = input('\nEnter name configuration\n')
 
         if name_config not in configs:
 
@@ -28,17 +28,17 @@ def add_config() -> None:
 
         else:
 
-            print('Конфиг уже существует')
+            print('Config already exists')
 
             continue
 
     while True:
 
-        str_get_data = input('\nВыбери источник данных(Введи цифру)\n'
-                             '1. Ручной ввод\n'
-                             '2. Файл\n')
+        str_get_data: str = input('\nSelect a data source (Enter a number)\n'
+                                  '1. Manual input\n'
+                                  '2. File\n')
 
-        where_get_data = 'manual' if str_get_data == '1' else 'file' if str_get_data == '2' else None
+        where_get_data: str or None = 'manual' if str_get_data == '1' else 'file' if str_get_data == '2' else None
 
         if not where_get_data:
 
@@ -50,13 +50,13 @@ def add_config() -> None:
 
     while True:
 
-        print('\nВыбери способ шифровки/дешифровки текста(Введи цифру)')
+        print('\nChoose a way to encrypt/decrypt the text (Enter a number)')
 
         for k, i in helper.name_func.items():
 
             print(f'{k}. {i}')
 
-        encryption_method = input()
+        encryption_method: str = input()
 
         if encryption_method not in ['1', '2', '3', '4', '5', '6']:
 
@@ -68,9 +68,9 @@ def add_config() -> None:
 
     while True:
 
-        encode_decode = input('\nНеобходимо шифровать или расшифровать текст?(Введи цифру)\n'
-                              '1. Шифровать\n'
-                              '2. Расшифровать\n')
+        encode_decode: str = input('\nDo I need to encrypt or decrypt the text?(Enter a number)\n'
+                                   '1. Encrypt\n'
+                                   '2. Decrypt\n')
 
         if encode_decode not in ['1', '2']:
 
@@ -78,7 +78,7 @@ def add_config() -> None:
 
         else:
 
-            encode_decode = 'encode' if encode_decode == '1' else 'decode' if encode_decode == '2' else None
+            encode_decode: str or None = 'encode' if encode_decode == '1' else 'decode' if encode_decode == '2' else None
 
             break
 
@@ -108,9 +108,9 @@ def add_config() -> None:
 
             config_full_viginer(id_config, name_config, where_get_data, encode_decode)
 
-    print(f'\nКонфиг "{name_config}" создан\n')
+    print(f'\nConfig "{name_config}" generated\n')
 
-    print('Возврат в режим выбора действий\n')
+    print('Return to the action selection mode\n')
 
     helper.helper()
 

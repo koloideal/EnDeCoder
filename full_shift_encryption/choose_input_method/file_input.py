@@ -7,7 +7,7 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
@@ -27,7 +27,7 @@ def helper_encode_file_input(file_content: list, file_locate: str) -> None:
 
                     file.write((encode_full_shift_encryption(shift, line)) + '\n')
 
-            print(f'\nФайл {file_locate}(encoded).txt успешно создан')
+            print(f'\nFile "{file_locate}(encoded).txt" successfully created')
 
             break
 
@@ -38,7 +38,7 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
@@ -58,6 +58,6 @@ def helper_decode_file_input(file_content: list, file_locate: str) -> None:
 
                     file.write((decode_full_shift_encryption(shift, line)) + '\n')
 
-            print(f'\nФайл {file_locate}(decoded).txt успешно создан')
+            print(f'\nФайл "{file_locate}(decoded).txt" successfully created')
 
             break

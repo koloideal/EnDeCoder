@@ -1,11 +1,11 @@
 import json
 
 
-def config_full_viginer(id_config, name_config, where_get_data, encoding_or_decoding):
+def config_full_viginer(id_config: int, name_config: str, where_get_data: str, encoding_or_decoding: str) -> None:
 
-    key_word = input("\nВведите ключ-фразу: ")
+    key_word: str = input("\nEnter the passphrase: ")
 
-    config = {
+    config: json = {
 
         "id": id_config,
         "method_encryption": "full viginer encryption",
@@ -15,11 +15,11 @@ def config_full_viginer(id_config, name_config, where_get_data, encoding_or_deco
 
     }
 
-    with open('configs.json', 'r+') as file:
+    with open('configs.json', 'r+', encoding='utf8') as file:
 
-        file_data = json.load(file)
+        file_data: json = json.load(file)
 
-        file_data[name_config] = config
+        file_data[name_config]: json = config
 
         file.seek(0)
 

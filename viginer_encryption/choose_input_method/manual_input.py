@@ -3,11 +3,11 @@ from viginer_encryption.viginer_encryption import encode_viginer_encryption, dec
 
 def helper_encode_manual_input() -> str:
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
-        key_word = input("\nВведите ключ-фразу: ")
+        key_word: str = input('\nEnter the passphrase: ')
 
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
@@ -22,7 +22,7 @@ def helper_encode_manual_input() -> str:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да) ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
@@ -37,11 +37,11 @@ def helper_encode_manual_input() -> str:
 
 def helper_decode_manual_input() -> str:
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
-        key_word = input("\nВведите ключ-фразу: ")
+        key_word: str = input('\nEnter the passphrase: ')
 
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
@@ -56,7 +56,7 @@ def helper_decode_manual_input() -> str:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да) ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 

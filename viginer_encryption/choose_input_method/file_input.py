@@ -5,7 +5,7 @@ def helper_encode_file_input(file_content: list, file_name: str) -> None:
 
     while True:
 
-        key_word = input("\nВведите ключ-фразу: ")
+        key_word: str = input('\nEnter the passphrase: ')
 
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
@@ -20,7 +20,7 @@ def helper_encode_file_input(file_content: list, file_name: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да) ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
@@ -30,13 +30,13 @@ def helper_encode_file_input(file_content: list, file_name: str) -> None:
 
         else:
 
-            list_with_len_lines = [len(line) for line in file_content]
+            list_with_len_lines: list = [len(line) for line in file_content]
 
-            encoded_string = encode_viginer_encryption(''.join(file_content), key_word, bool(int(save_register)))
+            encoded_string: str = encode_viginer_encryption(''.join(file_content), key_word, bool(int(save_register)))
 
-            result_list = []
+            result_list: list = []
 
-            long = 0
+            long: int = 0
 
             for line in list_with_len_lines:
 
@@ -47,9 +47,10 @@ def helper_encode_file_input(file_content: list, file_name: str) -> None:
             with open(f'content/{file_name}(encoded).txt', 'w', encoding='utf8') as file:
 
                 for line in result_list:
+
                     file.write(line + '\n')
 
-            print(f'\nФайл {file_name}(encoded).txt успешно создан')
+            print(f'\nFile "{file_name}(encoded).txt" successfully created')
 
             break
 
@@ -58,7 +59,7 @@ def helper_decode_file_input(file_content: list, file_name: str) -> None:
 
     while True:
 
-        key_word = input("\nВведите ключ-фразу: ")
+        key_word: str = input('\nEnter the passphrase: ')
 
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
@@ -73,7 +74,7 @@ def helper_decode_file_input(file_content: list, file_name: str) -> None:
 
     while True:
 
-        save_register = input("\nСохранять регистр?(0 - нет, 1 - да) ")
+        save_register: str = input('\nKeep the register?(0 - no, 1 - yes): ')
 
         if save_register not in ['0', '1']:
 
@@ -83,13 +84,13 @@ def helper_decode_file_input(file_content: list, file_name: str) -> None:
 
         else:
 
-            list_with_len_lines = [len(line) for line in file_content]
+            list_with_len_lines: list = [len(line) for line in file_content]
 
-            decoded_string = decode_viginer_encryption(''.join(file_content), key_word, bool(int(save_register)))
+            decoded_string: str = decode_viginer_encryption(''.join(file_content), key_word, bool(int(save_register)))
 
-            result_list = []
+            result_list: list = []
 
-            long = 0
+            long: int = 0
 
             for line in list_with_len_lines:
 
@@ -103,6 +104,6 @@ def helper_decode_file_input(file_content: list, file_name: str) -> None:
 
                     file.write(line + '\n')
 
-            print(f'\nФайл {file_name}(decoded).txt успешно создан')
+            print(f'\nFile "{file_name}(decoded).txt" successfully created')
 
             break

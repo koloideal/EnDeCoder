@@ -3,13 +3,13 @@ from full_shift_encryption.full_shift_encryption import encode_full_shift_encryp
 
 def helper_encode_manual_input() -> str:
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
@@ -28,13 +28,13 @@ def helper_encode_manual_input() -> str:
 
 def helper_decode_manual_input() -> str:
 
-    string = input("\nВведите строку: ")
+    string: str = input('\nEnter the text: ')
 
     while True:
 
         try:
 
-            shift = int(input("\nВведите сдвиг: "))
+            shift: int = int(input('\nEnter the shift: '))
 
             if not 0 < shift < 27:
 
