@@ -9,23 +9,35 @@ from viginer_encryption.viginer_encryption import encode_viginer_encryption, dec
 
 name_func_to_func: dict = {
 
-        'shift encryption': [encode_shift_encryption, decode_shift_encryption],
-        'full shift encryption': [encode_full_shift_encryption, decode_full_shift_encryption],
-        'user encryption': [encode_user_encryption, decode_user_encryption],
-        'atbash encryption': [encode_atbash_encryption, decode_atbash_encryption],
-        'viginer encryption': [encode_viginer_encryption, decode_viginer_encryption],
-        'full viginer encryption': [encode_full_viginer_encryption, decode_full_viginer_encryption]
+        'encode shift encryption': encode_shift_encryption,
+        'decode shift encryption': decode_shift_encryption,
+        'encode full shift encryption': encode_full_shift_encryption,
+        'decode full shift encryption': decode_full_shift_encryption,
+        'encode user encryption': encode_user_encryption,
+        'decode user encryption': decode_user_encryption,
+        'encode atbash encryption': encode_atbash_encryption,
+        'decode atbash encryption': decode_atbash_encryption,
+        'encode viginer encryption': encode_viginer_encryption,
+        'decode viginer encryption': decode_viginer_encryption,
+        'encode full viginer encryption': encode_full_viginer_encryption,
+        'decode full viginer encryption': decode_full_viginer_encryption
 
     }
 
 name_funcs: dict = {
 
-        1: 'shift encryption',
-        2: 'full shift encryption',
-        3: 'user encryption',
-        4: 'atbash encryption',
-        5: 'viginer encryption',
-        6: 'full viginer encryption'
+        1: 'encode shift encryption',
+        2: 'decode shift encryption',
+        3: 'encode full shift encryption',
+        4: 'decode full shift encryption',
+        5: 'encode user encryption',
+        6: 'decode user encryption',
+        7: 'encode atbash encryption',
+        8: 'decode atbash encryption',
+        9: 'encode viginer encryption',
+        10: 'decode viginer encryption',
+        11: 'encode full viginer encryption',
+        12: 'decode full viginer encryption'
 
     }
 
@@ -33,30 +45,21 @@ name_funcs: dict = {
 def get_help() -> None:
 
     print('\nSelect the function or enter "stop" to exit the menu, to get help on the operation of the encryption '
-          'method, you must enter its serial number point zero or one, 0 to get help on the encryption function, '
-          '1 for the decryption function, the final type of request must be in this format: 1.0 , 2.1 , 6.0 , etc .\n')
+          'method, you must enter its serial number\n')
 
     for k, i in enumerate(name_func_to_func.keys()):
 
-        print(f'{k + 1}: {i}\n')
+        print(f'{k + 1}: {i}')
+
+        if k % 2 != 0:
+
+            print()
 
     while True:
 
         name_func: str = input('Enter a query or "stop": ')
 
-        if name_func[0] not in ['1', '2', '3', '4', '5', '6'] and name_func != 'stop':
-
-            print('Incorrect input\n')
-
-            continue
-
-        elif name_func[-1] not in ['0', '1'] and name_func != 'stop':
-
-            print('Incorrect input\n')
-
-            continue
-
-        elif len(name_func) != 3 and name_func != 'stop':
+        if name_func not in [str(x + 1) for x in range(12)] and name_func != 'stop':
 
             print('Incorrect input\n')
 
@@ -72,23 +75,13 @@ def get_help() -> None:
 
             else:
 
-                match name_func[-1]:
+                int_name = int(name_func)
 
-                    case '0':
+                print(f'\nDescription of the "{name_funcs[int_name]}" function\n')
 
-                        print(f'\nDescription of the encode function of the method {name_funcs[int(name_func[0])]}\n')
+                print(' '.join(name_func_to_func[name_funcs[int_name]].__doc__.split()))
 
-                        print(name_func_to_func[name_funcs[int(name_func[0])]][0].__doc__.replace('   ', ''))
-
-                        print()
-
-                    case '1':
-
-                        print(f'\nDescription of the decode function of the method {name_funcs[int(name_func[0])]}\n')
-
-                        print(name_func_to_func[name_funcs[int(name_func[0])]][1].__doc__.replace('   ', ''))
-
-                        print()
+                print()
 
                 continue
 

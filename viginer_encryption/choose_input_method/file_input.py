@@ -64,7 +64,7 @@ def helper_decode_file_input(file_content: list, file_name: str) -> None:
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
 
-            print('Argument key_word must be in lowercase and contain only letters of the alphabet')
+            print('\nArgument key_word must be in lowercase and contain only letters of the alphabet')
 
             continue
 

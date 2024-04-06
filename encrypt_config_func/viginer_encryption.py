@@ -10,7 +10,7 @@ def config_viginer(id_config: int, name_config: str, where_get_data: str, encodi
         if not all([not (min([ord(x) for x in key_word]) < 97), key_word.islower(),
                     not (max([ord(x) for x in key_word]) > 122)]):
 
-            print('Argument key_word must be in lowercase and contain only letters of the alphabet')
+            print('\nArgument key_word must be in lowercase and contain only letters of the alphabet')
 
             continue
 
