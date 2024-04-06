@@ -42,10 +42,6 @@ def helper() -> None:
 
         pass
 
-    with open('traceback.txt', 'a', encoding='utf8') as traceback:
-
-        traceback.write(f'Start logging, datetime: {datetime.datetime.now()}\n\n')
-
     while True:
 
         where_get_data: str = input('\nHello, choose where to encode/decode text from?(Enter a number)\n\n'

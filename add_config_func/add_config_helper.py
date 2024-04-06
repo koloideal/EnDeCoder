@@ -142,6 +142,10 @@ def add_config() -> None:
 
     print('Return to the action selection mode\n')
 
+    with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+        traceback.write(f'Successful configuration creation\n\n')
+
     helper.helper()
 
     return

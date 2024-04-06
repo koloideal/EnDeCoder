@@ -58,6 +58,10 @@ def del_config() -> None:
 
             break
 
+    with open('traceback.txt', 'a', encoding='utf8') as traceback:
+
+        traceback.write(f'Successful configuration deletion\n\n')
+
     helper.helper()
 
     return
