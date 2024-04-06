@@ -22,9 +22,15 @@ def add_config() -> None:
 
         name_config: str = input('\nEnter name configuration\n')
 
-        if name_config not in configs:
+        if name_config not in configs and not name_config.endswith('(to_decode)') and not name_config.endswith('(to_encode)'):
 
             break
+
+        elif name_config.endswith('(to_decode)') or name_config.endswith('(to_encode)'):
+
+            print('Invalid name')
+
+            continue
 
         else:
 
@@ -107,6 +113,30 @@ def add_config() -> None:
         case '6':
 
             config_full_viginer(id_config, name_config, where_get_data, encode_decode)
+
+    with open('configs.json', 'r+', encoding='utf8') as file:
+
+        data: json = json.load(file)
+
+        need_config: dict = data[name_config]
+
+    mirror_config: dict = need_config
+
+    mirror_config['encode/decode']: str = 'encode' if need_config['encode/decode'] == 'decode' else 'decode'
+
+    mirror_config['id']: int = need_config['id'] + 1
+
+    with open('configs.json', 'r+', encoding='utf8') as file:
+
+        file_data: json = json.load(file)
+
+        second_part_name: str = "(to_encode)" if mirror_config["encode/decode"] == "encode" else "(to_decode)"
+
+        file_data[f'{name_config}{second_part_name}']: json = mirror_config
+
+        file.seek(0)
+
+        json.dump(file_data, file, indent=4)
 
     print(f'\nConfig "{name_config}" generated\n')
 

@@ -10,7 +10,7 @@
     "config_2": {
         "id": 2,
         "method_encryption": "viginer encryption",
-        "encode/decode": "decode",
+        "encode/decode": "encode",
         "key_word": "test",
         "save_register": true,
         "where_get_data": "manual"

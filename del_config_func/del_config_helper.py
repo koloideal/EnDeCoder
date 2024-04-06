@@ -34,6 +34,20 @@ def del_config() -> None:
 
                 configs.pop(name_config)
 
+                try:
+
+                    configs.pop(f'{name_config}(to_decode)')
+
+                except KeyError:
+
+                    try:
+
+                        configs.pop(f'{name_config}(to_encode)')
+
+                    except KeyError:
+
+                        pass
+
             with open('configs.json', 'w', encoding='utf8') as file:
 
                 json.dump(configs, file, indent=4)
