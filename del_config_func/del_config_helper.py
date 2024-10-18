@@ -3,64 +3,51 @@ import helper
 
 
 def del_config() -> None:
-
-    with open('configs.json', 'r', encoding='utf8') as config_file:
-
+    with open("configs.json", "r", encoding="utf8") as config_file:
         configs: json = json.load(config_file)
 
-    print('\nConfiguration deletion mode')
+    print("\nConfiguration deletion mode")
 
     while True:
-
-        name_config: str = input('\nEnter the name of the configuration to delete\n')
+        name_config: str = input("\nEnter the name of the configuration to delete\n")
 
         if name_config not in configs:
-
-            print('There is no such config')
+            print("There is no such config")
 
             continue
 
-        elif name_config in ['config_1', 'config_2']:
-
-            print('You cannot delete default configs')
+        elif name_config in ["config_1", "config_2"]:
+            print("You cannot delete default configs")
 
             continue
 
         else:
-
-            with open('configs.json', 'r+', encoding='utf8') as config_file:
-
+            with open("configs.json", "r+", encoding="utf8") as config_file:
                 configs: json = json.load(config_file)
 
                 configs.pop(name_config)
 
                 try:
-
-                    configs.pop(f'{name_config}(to_decode)')
+                    configs.pop(f"{name_config}(to_decode)")
 
                 except KeyError:
-
                     try:
-
-                        configs.pop(f'{name_config}(to_encode)')
+                        configs.pop(f"{name_config}(to_encode)")
 
                     except KeyError:
-
                         pass
 
-            with open('configs.json', 'w', encoding='utf8') as file:
-
+            with open("configs.json", "w", encoding="utf8") as file:
                 json.dump(configs, file, indent=4)
 
             print(f'\nConfig "{name_config}" has been deleted\n')
 
-            print('Return to the action selection mode\n')
+            print("Return to the action selection mode\n")
 
             break
 
-    with open('traceback.txt', 'a', encoding='utf8') as traceback:
-
-        traceback.write(f'Successful configuration deletion\n\n')
+    with open("traceback.txt", "a", encoding="utf8") as traceback:
+        traceback.write("Successful configuration deletion\n\n")
 
     helper.helper()
 
